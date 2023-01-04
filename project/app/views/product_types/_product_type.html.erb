@@ -1,0 +1,10 @@
+<div id="<%= dom_id product_type %>">
+  <h2>
+    <%= link_to product_type.product_type_name, product_type %>
+  </h2>
+
+  <p>
+    <b>包含的产品：</b>
+    <%= (product_type.products.collect { |product| product.product_name }).join(", ") %>
+  </p>
+</div>

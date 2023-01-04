@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @product %>
+
+<h3>
+  <%= link_to "编辑产品", edit_product_path(@product) %>
+</h3>
+
+<h3>
+  <%= link_to "返回产品列表", products_path %>
+</h3>
+
+<h3>
+  <%= button_to "删除产品", @product, method: :delete, :id => "button-delete" %>
+</h3>
+
+<h2>评论</h2>
+<div>
+  <%= render @product.comments %>
+</div>
+
+<%= form_for [@product, Comment.new] do |f| %>
+
+  <h3>
+    <%= f.label "添加评论" %> <br/>
+  </h3>
+  <%= f.text_area :comment_body, :id => "description-form" %>
+
+  <p><%= f.submit "提交", :id => "button-new" %></p>
+<% end %>

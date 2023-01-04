@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <h1 style="display: inline">类别列表</h1>
+
+  <h3 style="float: right">
+    <%= link_to "查看产品", products_url%>
+  </h3>
+</div>
+
+<br>
+<hr/>
+
+<div id="product_types">
+  <% @product_types.each do |product_type| %>
+    <%= render product_type %>
+  <% end %>
+</div>
+
+<hr/>
+
+<h3>
+  <%= link_to "添加新类别", new_product_type_path %>
+</h3>

@@ -1,0 +1,14 @@
+<div id="<%= dom_id product %>" class="product-info">
+  <h2>
+    <%= link_to product.product_name, product %>
+  </h2>
+
+  <p>
+    <strong>产品类别：</strong>
+    <%= product.product_type.product_type_name if product.product_type %>
+  </p>
+
+  <p id="product-description">
+    <%= link_to product.product_description, product %>
+  </p>
+</div>

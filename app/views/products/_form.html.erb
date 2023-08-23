@@ -1,0 +1,32 @@
+<%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label "产品名（不超过20个字）", style: "display: block" %>
+    <%= form.text_field :product_name, :id => "name-form" %>
+  </div>
+
+  <div>
+    <%= form.label "产品描述（不超过200个字）", style: "display: block" %>
+    <%= form.text_area :product_description, :id => "description-form"%>
+  </div>
+
+  <div>
+    <%= form.label "产品类别", style: "display: block" %>
+    <%= form.collection_select(:product_type_id, ProductType.all, :id, :product_type_name) %>
+  </div>
+
+  <div>
+    <%= form.submit "提交" ,:id => "button-new"%>
+  </div>
+<% end %>
